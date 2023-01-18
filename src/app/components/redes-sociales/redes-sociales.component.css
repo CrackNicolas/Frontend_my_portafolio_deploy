@@ -1,0 +1,175 @@
+/**------Redes sociales------**/
+#redes-sociales h4{
+    font-family: var(--tipo-letra-bold);
+    letter-spacing: 1.5px;
+}
+#redes{
+    width: 0px;
+}
+#redes h6{
+    margin-left: 10.2px;
+}
+#sociales{
+    width: 22px;
+    height: 22px;
+}
+#redes #sociales{
+    transition-duration: 450ms;
+}
+#redes #sociales:hover{
+    transition-timing-function: ease-in-out;
+    transform: translateY(-6px);
+    cursor: pointer;
+}
+#m-oculto{
+    display: none;
+}
+@media (max-width : 1200px){
+    #redes{
+        margin-top: 30px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    #redes h6{
+        display: none;
+    }
+    #m-oculto{
+        display: flex;
+        justify-content: center;
+        font-size: 27px;
+        margin-bottom: -25px;
+    }
+    #redes #sociales{
+        width: 35px;
+        height: 35px;
+    }
+    #redes a{
+        height: 60px;
+        margin: 0px 40px;
+    }
+}
+@media (max-width : 800px){
+    #m-oculto{
+        font-size: 20px;
+    }
+    #redes a{
+        margin: 0px 20px;
+    }
+}
+@media (max-width : 550px){
+    #redes{
+        margin-top: 20px;
+    }
+    #redes a{
+        height: 30px;
+        margin: 0px 10px;
+    }
+}
+@media (max-width : 510px){
+    #redes #sociales{
+        width: 30px;
+        height: 30px;
+    }
+    #redes a{
+        margin: 25px;
+    }
+}
+@media (max-width : 400px){
+    #m-oculto{
+        font-size: 15px;
+    }
+    #redes #sociales{
+        width: 25px;
+        height: 25px;
+    }
+    #redes a{
+        margin: 20px;
+    }
+}
+@media (max-width : 310px){
+    #m-oculto{
+        text-align: center;
+        font-size: 13px;
+    }
+}
+/**---------Edicion red social---------**/
+#add-red-social h1{
+    font-size: 20px;
+    letter-spacing: 3.1px;
+    font-family: var(--tipo-letra-modal-add-edit);
+}
+#add-red-social h1{
+    font-size: 20px;
+    letter-spacing: 3.1px;
+    font-family: var(--tipo-letra-modal-add-edit);
+}
+#add-red-social button ion-icon{
+    color: var(--color-text-primary);
+}
+.lista-red-social{
+    height: 300px;
+	overflow-y: scroll;
+    scrollbar-color: var(--color-text-primary);;
+}
+.lista-red-social::-webkit-scrollbar{
+    width: 7px;
+}
+.lista-red-social::-webkit-scrollbar-thumb{
+    background: var(--color-text-primary);
+    border-radius: 30px;
+}
+.sublista-red-social{
+    overflow-y: scroll;
+    scrollbar-color: var(--color-text-primary);;
+    height: 120px;
+}
+.sublista-red-social::-webkit-scrollbar{
+    width: 7px;
+}
+.sublista-red-social::-webkit-scrollbar-thumb{
+    background: var(--color-text-primary);
+    border-radius: 30px;
+}
+.items-red-social{
+    padding-right: 5px;
+    height: auto;
+}
+.name-item-red-social{
+    width: 90%;
+}
+.logo-item-red-social{
+    width: 10%;
+}
+.logo-item-red-social ion-icon{
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    color: var(--color-text-primary);
+}
+.logo-item-red-social ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px 3px var(--color-text-primary);
+}
+.icon-add-red-social ion-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+.icon-add-red-social ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px var(--color-text-primary);
+}
+.item-delete-red-social{
+    display: flex;
+    border-bottom: 2px solid var(--color-text-primary);
+}
+@media (max-width:400px){
+    .sublista-red-social{
+        height: 90px;
+    }
+}
+/**----------------------------------**/

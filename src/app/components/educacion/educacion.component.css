@@ -1,0 +1,135 @@
+/**------Educacion------**/
+#educacion h4{
+    font-family: var(--tipo-letra-bold);
+    letter-spacing: 1.5px;
+}
+.section-educacion article, .section-educacion article p{
+    color: var(--color-text-quaternary);
+}
+.img-educacion{
+    width: 205px;
+    height: 205px;
+}
+.section-educacion{
+    transition-duration: 1.3s;
+}
+.section-educacion article{
+    padding-top: 9px;
+    border-bottom: 1px solid var(--color-text-primary);
+    border-top: 1px solid var(--color-text-primary);
+    transition-duration: 2s;
+}
+.section-educacion:hover article{
+    transform: translateY(-10px);
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 0 10px 1px var(--color-text-primary);
+}
+.data-educacion{
+    display: flex;
+}
+.logo-educacion{
+    width: 30%;
+}
+.info-educacion{
+    width: 70%;
+}
+@media (max-width : 992px){
+    .logo-educacion{
+        width: 40%;
+    }
+    .info-educacion{
+        width: 60%;
+    }
+}
+@media (max-width : 768px){
+    .data-educacion{
+        display: block;
+    }
+    .logo-educacion,.info-educacion{
+        width: auto;
+    }
+    .img-educacion{
+        margin-bottom: 20px;
+    }
+}
+@media (max-width : 450px){
+    .img-educacion{
+        width: 205px;
+        height: 200px;
+    }
+}
+/**--------Edicion educacion---------**/
+#add-educacion h1{
+    font-size: 20px;
+    letter-spacing: 3.1px;
+    font-family: var(--tipo-letra-modal-add-edit);
+}
+#add-detalle h1{
+    font-size: 20px;
+    letter-spacing: 3.1px;
+    font-family: var(--tipo-letra-modal-add-edit);
+}
+.lista-detalle-educacion{
+    height: 300px;
+	overflow-y: scroll;
+    scrollbar-color: var(--color-text-primary);;
+}
+.lista-detalle-educacion::-webkit-scrollbar{
+    width: 7px;
+}
+.lista-detalle-educacion::-webkit-scrollbar-thumb{
+    background: var(--color-text-primary);
+    border-radius: 30px;
+}
+.sublista-detalle-educacion{
+    overflow-y: scroll;
+    scrollbar-color: var(--color-text-primary);;
+    height: 120px;
+}
+.sublista-detalle-educacion::-webkit-scrollbar{
+    width: 7px;
+}
+.sublista-detalle-educacion::-webkit-scrollbar-thumb{
+    background: var(--color-text-primary);
+    border-radius: 30px;
+}
+.items-detalle-educacion{
+    padding-right: 5px;
+    height: auto;
+}
+.name-item-detalle{
+    width: 90%;
+}
+.logo-item-detalle{
+    width: 10%;
+}
+.logo-item-detalle ion-icon{
+    width: 30px;
+    height: 30px;
+}
+.icon-add-detalle ion-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+.icon-add-detalle ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px var(--color-text-primary);
+}
+.item-delete-detalle ion-icon{
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+}
+.item-delete-detalle ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px 3px var(--color-text-primary);
+}
+.item-delete-detalle{
+    display: flex;
+    border-bottom: 2px solid var(--color-text-primary);
+}
+/**----------------------------------**/

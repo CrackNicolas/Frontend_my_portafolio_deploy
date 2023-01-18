@@ -1,0 +1,202 @@
+/**------------Proyecto------------**/
+.swiper {
+    width: 750px;
+    height: 400px;
+    border-radius: 10px;
+}
+.presentacion-proyecto{
+    width: 90%;
+    color: var(--color-text-quaternary);
+}
+#proyectos h4{
+    font-family: var(--tipo-letra-bold);
+    letter-spacing: 1.5px;
+}
+.section-proyecto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 93%;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.link ion-icon{
+    width: 25px;
+    height: 25px;
+    border-radius: 2px;
+}
+.link ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px 3px var(--color-text-primary);
+}
+.card{
+    background: transparent;
+    position: relative;
+    width: 65%;
+    height: 400px;
+    margin: 0px 5px 15px 5px;
+}
+.card:hover{
+    cursor: pointer;
+}
+.card .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+.card .front{
+    display: flex;
+    justify-content: center;
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 0 10px 0 var(--color-text-primary);
+}
+.card .front .img-card-proyecto{
+    position: absolute;
+    filter: grayscale(100%);
+    width: 100%;
+    height: 100%;
+}
+.card .front .text-card-proyecto{
+    position: absolute;
+    align-self: center;
+    width: 220px;
+    border-radius: 5px;
+    color: var(--color-font-card);
+    background: var(--color-text-primary);
+    text-align: center;
+    box-shadow: 0 0 15px 0 var(--color-text-primary);
+}
+.card .back{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3, 35, 54);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+    border: 1px solid var(--color-text-primary);
+}
+.card .back .link{
+    border-top: solid 1px  var(--color-text-primary);
+    border-top-left-radius: 70px;
+    border-top-right-radius: 70px;
+    height: 40px;
+    line-height: 50px;
+    margin-top: -10px;
+}
+.card .back h3{
+    font-size: 30px;
+    margin-top: 5px;
+    letter-spacing: 1px;
+}
+.card .back p{
+    letter-spacing: 1px;
+} 
+.card:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+}
+.card:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+@media (max-width : 400px){
+    .swiper{
+        height: 490px;
+    }
+    .card .back h3{
+        font-size: 23px;
+    }
+}
+@media (max-width : 370px){
+    .swiper{
+        height: 500px;
+    }
+}
+@media (max-width : 350px){
+    .swiper{
+        height: 510px;
+    }
+}
+@media (max-width : 321px){
+    .swiper{
+        height: 520px;
+    }
+}
+/**----------------------------------**/
+
+/**---------Edicion proyecto---------**/
+#add-proyecto h1{
+    font-size: 20px;
+    letter-spacing: 3.1px;
+    font-family: var(--tipo-letra-modal-add-edit);
+}
+#add-tecnologia h1{
+    font-size: 20px;
+    letter-spacing: 3.1px;
+    font-family: var(--tipo-letra-modal-add-edit);
+}
+.lista-tecnologia{
+    height: 300px;
+	overflow-y: scroll;
+    scrollbar-color: var(--color-text-primary);;
+}
+.lista-tecnologia::-webkit-scrollbar{
+    width: 7px;
+}
+.lista-tecnologia::-webkit-scrollbar-thumb{
+    background: var(--color-text-primary);
+    border-radius: 30px;
+}
+.sublista-tecnologia{
+    overflow-y: scroll;
+    scrollbar-color: var(--color-text-primary);;
+    height: 120px;
+}
+.sublista-tecnologia::-webkit-scrollbar{
+    width: 7px;
+}
+.sublista-tecnologia::-webkit-scrollbar-thumb{
+    background: var(--color-text-primary);
+    border-radius: 30px;
+}
+.items-tecnologia{
+    padding-right: 5px;
+    height: auto;
+}
+.name-item-tecnologia{
+    width: 90%;
+}
+.logo-item-tecnologia{
+    width: 10%;
+}
+.logo-item-tecnologia ion-icon{
+    width: 30px;
+    height: 30px;
+}
+.icon-add-tecnologia ion-icon{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+.icon-add-tecnologia ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px 5px var(--color-text-primary);
+}
+.item-delete-tecnologia ion-icon{
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+}
+.item-delete-tecnologia ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px 3px var(--color-text-primary);
+}
+.item-delete-tecnologia{
+    display: flex;
+    border-bottom: 2px solid var(--color-text-primary);
+}
+/**----------------------------------**/

@@ -1,0 +1,84 @@
+<!-----------Habilidades tecnicas---------->
+<section data-aos="fade-right" data-aos-duration="3000" id="habilidades" class="mx-auto text-start py-5 px-3">
+    
+    <!--Sub-title normal--->
+    <h4 *ngIf="!acceso" class="border-bottom border-primary pb-2 text-end mt-5 mb-1">Habilidades tecnicas</h4>
+
+    <!--Sub-title de edicion--->
+    <button *ngIf="acceso" class="select-edit border-bottom border-primary mb-3" data-aos="fade-right" data-aos-duration="3000">
+        <ion-icon name="add-circle-outline" data-bs-toggle="modal" data-bs-target="#add-habilidad-tecnica"></ion-icon>
+        <h4>Habilidades tecnicas</h4>
+    </button>
+</section>
+<section data-aos="fade-up" data-aos-duration="3000" id="habilidad" class="items-habilidad-tecnica mx-auto text-center">
+    <div *ngFor="let habilidad of habilidades" class="container-edit-habilidad">
+        <div class="porcentaje" style="--num:{{habilidad.porcentaje}}">
+            <div class="dot"></div>
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70"></circle>
+            </svg>
+            <div class="numero">
+                <div class="icon">
+                    <app-selected-icon [name_icon] = "habilidad.nombre_icono" [size_icon] = "22"></app-selected-icon>
+                </div>
+                <h2>{{habilidad.porcentaje}}<span>%</span></h2>
+                <p>{{habilidad.nombre}}</p>
+            </div>
+        </div>
+        <section *ngIf="acceso" class="subicon-edit-habilidad">
+            <ion-icon (click)="Edit_habilidad(habilidad)" class="mx-2" name="create-outline" data-bs-toggle="modal" data-bs-target="#add-habilidad-tecnica"></ion-icon>
+            <ion-icon (click)="Delete_habilidad(habilidad.id_habilidad)" class="mx-2" name="trash-outline"></ion-icon>
+        </section>
+    </div>
+</section>
+
+<!---------Modal edicion habilidades tecnicas----------->
+<div class="modal fade" id="add-habilidad-tecnica" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-add-edit modal-content bg-black mx-auto">
+            <div class="modal-header header border-primary">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">{{title}}</h1>
+              <button type="button" (click)="Reiniciar()" class="btn-cerrar px-2 font-bold" data-bs-dismiss="modal">X</button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="mensaje" class="mensaje-error mb-2">
+                    {{mensaje}}
+                </div>
+                <form class="text-center">
+                    <input type="text" [(ngModel)] = "selectedHabilidad.nombre" class="mb-3 form-control bg-black text-white border-bottom border-primary" placeholder="Nombre..." name="nombre">
+                    <div class="slider my-3 px-1 py-2 border border-primary rounded-2">
+                        <label for="price-1">Porcentaje</label>
+                        <output value="{{selectedHabilidad.porcentaje}}%" class="price-1-output mx-2" for="price-1"></output>
+                        <input type="range" [(ngModel)] = "selectedHabilidad.porcentaje" class="slider form-range mb-3 w-100" name="price-1" id="price-1" min="0" max="100" step="1" value="0">
+                    </div>
+                    
+                    <!---Seleccionar icono---->
+                    <div class="select_icon mb-3">
+                        <button data-bs-toggle="modal" data-bs-target="#view_icons_habilidad_tecnica" class="text-center bg-black">
+                            Seleccionar icono
+                        </button>
+                        <div class="icon-selected text-center">
+                            <app-selected-icon [name_icon] = "selectedHabilidad.nombre_icono" [size_icon] = "25"></app-selected-icon>
+                        </div>
+                    </div>
+                    <!------------------------>
+                    
+                    <select [(ngModel)] = "selectedHabilidad.estado" class="bg-black w-100 border-primary p-2 mb-3" name="estado">
+                        <option selected>Seleccionar estado</option>
+                        <option value="{{selectedEstado.uso_actual}}">Actualmente la uso</option>
+                        <option value="{{selectedEstado.uso_antiguo}}">Antiguamente la usaba</option>
+                    </select>
+                    <button (click)="Add_edit_habilidad_tecnica()" type="submit" class="mt-2 btn btn-primary bg-black rounded-1 w-100">
+                        <ion-icon name="checkmark-done-outline"></ion-icon>
+                        {{name_button}}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------Modal view icons----------->
+<div class="modal fade" id="view_icons_habilidad_tecnica" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <app-view-icons (icono)="Ver_icono($event)" [modal_peticion]="modal_peticion"></app-view-icons>
+</div>

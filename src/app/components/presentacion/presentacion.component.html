@@ -1,0 +1,80 @@
+<!-----------Presentacion---------->
+<section id="presentacion" class="mx-auto text-start mb-5 mt-1 pb-5 pt-3 px-4">
+
+    <!--------------Theme-------------->
+    <section data-aos="fade-up" data-aos-duration="2000" class="mb-1 pt-5 mt-5" id="theme">
+        <ion-icon onclick="change_theme_claro()" class="theme-claro" name="contrast-outline"></ion-icon>
+        <ion-icon onclick="change_theme_intermedio()" class="theme-intermedio" name="contrast-outline"></ion-icon>
+        <ion-icon onclick="change_theme_oscuro()" class="theme-oscuro" name="contrast-outline"></ion-icon>
+    </section>
+    <!--------------------------------->
+
+    <h4 data-aos="fade-right" data-aos-duration="1300" id="saludo" class="mb-4">Hola, mi nombre es</h4>
+    <h1 data-aos="fade-right" data-aos-duration="1600" id="nombre" class="mb-4">{{presentacion.apellido}} {{presentacion.nombre}}</h1>
+    <h2 data-aos="fade-right" data-aos-duration="1900" id="profesion" class="mb-5">{{presentacion.profesion}}</h2>
+    <h4 data-aos="fade-right" data-aos-duration="2200" id="info" class="mb-3">
+        {{presentacion.presentacion}}
+    </h4>
+</section>
+<section id="perfil" class="container text-center my-4 py-5 px-3">
+    <img data-aos="fade-up" data-aos-duration="3000" src="{{presentacion.link_perfil}}" alt="Mi perfil" class="mt-5 mb-3 rounded-circle">
+</section>
+<section data-aos="fade-up" data-aos-duration="2000" id="descripcion" class="text-start mx-auto py-5 mb-5 px-4">
+    
+    <!--Sub-title normal--->
+    <h4 *ngIf="!acceso" id="sobre-mi" data-aos="fade-right" data-aos-duration="3000" class="mb-3 pb-2 border-bottom border-primary">Sobre mi</h4>
+    
+    <!--Sub-title de edicion--->
+    <button *ngIf="acceso" class="select-edit border-bottom border-primary mb-3" data-aos="fade-right" data-aos-duration="3000">
+        <ion-icon name="create-outline" data-bs-toggle="modal" data-bs-target="#edit-presentacion"></ion-icon>
+        <h4 id="sobre-mi">Sobre mi</h4>
+    </button>
+
+    <p data-aos="fade-left" data-aos-duration="1300" id="direccion" class="mb-3 text-end">{{presentacion.direccion}}</p>
+    <p data-aos="fade-right" data-aos-duration="1600" class="mb-4">{{presentacion.regla}}</p>
+    <p data-aos="fade-right" data-aos-duration="1900" class="mb-4">Aqui hay algunas de las tecnologias con las que he estado trabajando recientemente:</p>
+    <div data-aos="fade-left" data-aos-duration="2200" class="tecnologias-actuales">
+        <div class="lista-start">
+            <li *ngFor="let habilidad of Get_tecnologias('start')">{{habilidad.nombre}}</li>
+        </div>
+        <div class="lista-end">
+            <li *ngFor="let habilidad of Get_tecnologias('end')">{{habilidad.nombre}}</li>
+        </div>
+    </div>
+</section>
+
+<!---------Modal edicion presentacion----------->
+<div class="modal fade" id="edit-presentacion" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-add-edit modal-content bg-black mx-auto">
+            <div class="modal-header header border-primary">
+              <h1 class="modal-title font-bold" id="exampleModalLabel">PRESENTACION</h1>
+              <button type="button" class="btn-cerrar my-auto px-2 py-0 fs-5 font-bold" data-bs-dismiss="modal">X</button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="mensaje" class="mensaje-error mb-2">
+                    {{mensaje}}
+                </div>
+                <form class="text-center">
+                    <div class="lista-presentacion">
+                        <div class="items-presentacion">
+                            <input type="text" class="mb-3 form-control bg-black text-white border-bottom border-primary" [(ngModel)] = "presentacion.nombre" placeholder="Nombre..." name="nombre">
+                            <input type="text" class="mb-3 form-control bg-black text-white border-bottom border-primary" [(ngModel)] = "presentacion.apellido" placeholder="Apellido..." name="apellido">
+                            <input type="text" class="mb-3 form-control bg-black text-white border-bottom border-primary" [(ngModel)] = "presentacion.telefono" placeholder="Telefono..." name="telefono">
+                            <input type="text" class="mb-3 form-control bg-black text-white border-bottom border-primary" [(ngModel)] = "presentacion.correo" placeholder="Correo..." name="correo">
+                            <input type="text" class="mb-3 form-control bg-black text-white border-bottom border-primary" [(ngModel)] = "presentacion.link_perfil" placeholder="Link de imagen perfil..." name="link_perfil">
+                            <input type="text" class="mb-3 form-control bg-black text-white border-bottom border-primary" [(ngModel)] = "presentacion.direccion" placeholder="Direccion..." name="direccion">
+                            <textarea type="text" class="mb-3 form-control bg-black text-white border-bottom border-primary" [(ngModel)] = "presentacion.presentacion" placeholder="Presentacion..." name="presentacion"></textarea>
+                            <textarea type="text" class="mb-3 form-control bg-black text-white border-bottom border-primary" [(ngModel)] = "presentacion.regla" placeholder="Regla..." name="regla"></textarea>
+                            <input type="text" class="form-control bg-black text-white border-bottom border-primary" [(ngModel)] = "presentacion.profesion" placeholder="Profesion..." name="profesion">
+                        </div>
+                    </div>
+                    <button (click)="Actualizar_presentacion()" class="btn mt-4 btn btn-primary bg-black rounded-1 w-100">
+                        <ion-icon name="reload-outline"></ion-icon>
+                        ACTUALIZAR
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

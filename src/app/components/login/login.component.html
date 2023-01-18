@@ -1,0 +1,27 @@
+<div class="login opacity-75 px-4 mx-auto">
+    <!--------------Theme-------------->
+    <section data-aos="fade-up" data-aos-duration="2000" class="mx-auto" id="login-theme">
+        <ion-icon onclick="change_theme_claro_login()" class="theme-claro" name="contrast-outline"></ion-icon>
+        <ion-icon onclick="change_theme_intermedio_login()" class="theme-intermedio" name="contrast-outline"></ion-icon>
+        <ion-icon onclick="change_theme_oscuro_login()" class="theme-oscuro" name="contrast-outline"></ion-icon>
+    </section>
+    <!--------------------------------->
+    <div class="header-login pt-0 border-bottom-0 pb-3">
+        <ion-icon data-aos="fade-left" data-aos-duration="2000" name="person-outline" class="icon-login"></ion-icon>
+        <a href="/" class="btn-cerrar-login px-2">
+            <ion-icon data-aos="fade-right" data-aos-duration="2000" name="close-outline"></ion-icon>
+        </a>
+    </div>
+    <form class="mx-auto text-center" action="">
+        <h2 data-aos="fade-up" data-aos-duration="3000">INICIAR SESION</h2>
+        <input data-aos="fade-left" data-aos-duration="2000" type="text" [(ngModel)] = "selectedUsuario.nombre" class="mb-5 form-control bg-black text-white border-bottom border-primary" placeholder="Usuario..." name="nombre" required>
+        <input data-aos="fade-right" data-aos-duration="2000" type="password" [(ngModel)] = "selectedUsuario.password" class="mb-5 form-control bg-black text-white border-bottom border-primary" placeholder="Contraseña..." name="password" required>
+        <div *ngIf="mensaje_error" class="mensaje-error">
+            {{mensaje_error}}
+        </div>
+        <a data-aos="fade-up" data-aos-duration="1500" (click)="Autenticar()" class="rounded-1 w-100 fw-semibold">
+            <ion-icon class="text-danger" name="key-outline"></ion-icon>
+            ACCEDER
+        </a>
+    </form>
+</div>

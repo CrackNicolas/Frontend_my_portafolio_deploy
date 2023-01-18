@@ -1,0 +1,206 @@
+/**-------Encabezado de habilidades blandas------**/
+.blandas .descripcion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.name-blanda{
+    width: 90%;
+    color: var(--color-sub-title-habilidades-adicionales);
+}
+.logo-blanda{
+    width: 10%;
+    text-align: end;
+}
+.logo-blanda ion-icon{
+    margin-top:-1.5px;
+    margin-bottom: -7px;
+    margin-right: -1.5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.blandas .descripcion:hover .logo-blanda ion-icon{
+    box-shadow: 0 0 15px 2px var(--color-text-primary);
+}
+.blandas .descripcion:hover .name-blanda{
+    color: var(--color-text-primary);
+}
+/**--------------------------------**/
+
+/**-------Encabezado de habilidades de gestion de proyectos y control de versiones------**/
+.gestion .descripcion, .control-de-versiones .descripcion{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.name-gestion, .name-version{
+    width: 90%;
+    text-align: end;
+    color: var(--color-sub-title-habilidades-adicionales);
+}
+.logo-gestion, .logo-version{
+    width: 10%;
+    text-align: start;
+}
+.logo-gestion ion-icon, .logo-version ion-icon{
+    margin-top:-1.5px;
+    margin-bottom: -7px;
+    margin-left: -1.5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.gestion .descripcion:hover .logo-gestion ion-icon, .control-de-versiones .descripcion:hover .logo-version ion-icon{
+    box-shadow: 0 0 15px 2px var(--color-text-primary);
+}
+.gestion .descripcion:hover .name-gestion, .control-de-versiones .descripcion:hover .name-version{
+    color: var(--color-text-primary);
+}
+/**--------------------------------**/
+
+/**------Habilidades adicionales------**/
+#habilidad-adicional{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 93%;
+    border-radius: 20px;
+    background-color: var(--color-font-card);
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+    padding: 20px 20px;
+}
+.blandas, .mas-habilidades{
+    width: 50%;
+}
+.control-de-versiones{
+    margin-top: 50px;
+}
+#habilidades-adicionales h4{
+    font-family: var(--tipo-letra-bold);
+    letter-spacing: 1.5px;
+}
+#habilidad-adicional:hover{
+    cursor: pointer;
+    transform: translateY(-20px);
+    box-shadow: 0 0 10px 1px var(--color-text-primary);
+}
+#habilidad-adicional:hover .bar .progress-line span {
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+#habilidad-adicional .bar .progress-line{
+    position: relative;
+    height: 10px;
+    background: var(--color-font-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 1s cubic-bezier(1,0,0.5,1) forwards;
+}
+.progress-line{
+    margin-top: -10px;
+}
+.progress-line span{
+    width: var(--porcentaje);
+}
+.descripcion-skill{
+    display: flex;
+    justify-content: start center;
+}
+.descripcion-skill ion-icon{
+    width: 20px;
+    height: 20px;
+    margin-top: 4px;
+    color: var(--color-text-primary);
+}
+.descripcion-skill p{
+    margin-left: 7px;
+    margin-top: 2px;
+}
+.bar .progress-line span{
+    position: absolute;
+    background: var(--color-text-primary);
+    border-radius: 20px;
+}
+@keyframes animate{
+    100%{
+        transform: scale(1);
+    }
+}
+@media (max-width : 700px){
+    #habilidad-adicional{
+        display: block;
+    }
+    .blandas, .mas-habilidades{
+        width: auto;
+    }
+    .gestion,.control-de-versiones{
+        margin-top: 30px;
+    }
+}
+@media (max-width : 400px){
+    #habilidad-adicional{
+        padding: 17px 8px;
+    }
+}
+@media (max-width : 365px){
+    .descripcion-skill p{
+        margin-left: 4px;
+    }
+}
+/**-----------------------------**/
+/**---------Edicion habilidad adicional---------**/
+#add-habilidad-adicional h1{
+    font-size: 20px;
+    letter-spacing: 3.1px;
+    font-family: var(--tipo-letra-modal-add-edit);
+}
+#add-habilidad-adicional select{
+    border-radius: 6px;
+}
+#add-habilidad-adicional select, #add-habilidad-adicional option{
+    color: var(--color-text-select);
+    outline: none;
+}
+#add-habilidad-adicional select:hover{
+    cursor: pointer;
+}
+.descripcion-skill p{
+    width: 100%;
+}
+.icons-skill{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -12px;
+    gap: 5px;
+    max-width: 48px;
+    min-width: 48px;
+    text-align: end;
+}
+.icons-skill ion-icon{
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+}
+.icons-skill ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 3px var(--color-text-primary);
+}
+#add-habilidad-adicional ion-icon{
+    color: var(--color-text-primary);
+}
+/**---------------------------------------------**/

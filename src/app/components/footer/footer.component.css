@@ -1,0 +1,173 @@
+/**------Footer------**/
+#final{
+    width: 95.4%;
+}
+#final h4{
+    font-family: var(--tipo-letra-bold);
+    letter-spacing: 1.5px;
+}
+.select-final{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--color-font-primary);
+    border:none;
+}
+.select-final:hover{
+    cursor: default;
+}
+.select-final ion-icon{
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+}
+.select-final h4{
+    padding-top: 9px;
+    width: 100%;
+    text-align: end;
+}
+@media (max-width : 400px){
+    .select-final ion-icon{
+        width: 30px;
+        height: 30px;
+    }
+}
+#final h1{
+    font-size: 57px;
+    color: var(--color-text-tertiary);
+}
+#final p{
+    max-width: 470px;
+    color: var(--color-text-quaternary);
+}
+#final div a{
+    text-decoration: none;
+    border: 1px solid var(--color-text-primary);
+    color: var(--color-text-primary);
+}
+#final div a:hover{
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    box-shadow: 0 0 15px 0 var(--color-text-primary);
+}
+#contacto{
+    max-width: 500px;
+}
+#contacto label{
+    transition-duration: 3s;
+}
+#contacto button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#contacto button ion-icon{
+    width: 18px;
+    height: 18px;
+}
+#contacto button:hover{
+    box-shadow: 0 0 30px 0 var(--color-text-primary);
+}
+#mensaje{
+    background: transparent;
+    box-shadow: 0 5px 5px 0 var(--color-text-primary);
+    border-radius: 5px;
+    max-width: 250px;
+    min-width: 250px;
+}
+#f-nombre,#f-email,#f-mensaje,#f-asunto{
+    display: flex;
+    flex-direction: column;
+}
+#f-nombre input, #f-email input, #f-asunto input,#f-mensaje textarea{
+    order: 2;
+}
+#f-nombre label, #f-email label,#f-mensaje label,#f-asunto label{
+    order: 1;
+    border-radius: 6px;
+}
+#f-nombre input:hover + label, #f-email input:hover + label, #f-asunto input:hover + label, #f-mensaje textarea:hover + label{
+    box-shadow: 0 0 13px 0 var(--color-text-primary);
+    transition-duration: 3s;
+    max-width: none;
+    text-align: center;
+}
+.data{
+    padding: 5px 12px;
+    display: block;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.data h6{
+    margin-left: 10px;
+    padding-top:8px;
+    transition-duration: 500ms;
+    color: var(--color-text-quaternary);
+    text-align: center;
+}
+.data h6:hover{
+    cursor: pointer;
+    color: var(--color-text-primary);
+}
+.data img:hover{
+    box-shadow: 0px 0px 15px 2px var(--color-text-primary);
+}
+.data img{
+    text-align: center;
+    width: 17px;
+    height: 17px;
+    border: 1px;
+    border-radius: 50%;
+}
+@media (max-width : 750px){
+    #final h1{
+        font-size: 50px;
+    }
+}
+@media (max-width : 670px){
+    #final h1{
+        font-size: 45px;
+    }
+}
+@media (max-width : 550px){
+    #contacto{
+        max-width: 450px;
+    }
+}
+@media (max-width : 460px){
+    #contacto{
+        max-width: 400px;
+    }
+}
+/**------------------**/
+
+/**-------Curso------**/
+.curso{
+    width: 100%;
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.curso .icon-curso ion-icon{
+    width: 45px;
+    height: 45px;
+    color: white;
+}
+.curso .title-curso{
+    font-size: 13px;
+    letter-spacing: 2.5px;
+    margin-bottom: 4px;
+}
+.info-curso{
+    width: 150px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+/**------------------**/

@@ -1,0 +1,78 @@
+<!-----------Redes sociales---------->  
+<section *ngIf="acceso" data-aos="fade-right" data-aos-duration="3000" id="redes-sociales" class="mx-auto text-start py-5 px-3">
+    <button class="select-edit border-bottom border-primary mb-3" data-aos="fade-right" data-aos-duration="3000">
+        <ion-icon name="add-circle-outline" data-bs-toggle="modal" data-bs-target="#add-red-social"></ion-icon>
+        <h4>Redes sociales</h4>
+    </button>
+</section>
+
+<h6 data-aos="fade-up" data-aos-duration="3000" id="m-oculto" class="mt-5 pt-5 fw-bold">Puedes comunicarte mediante</h6> 
+<section data-aos="fade-up" data-aos-duration="2000" class="fixed-bottom" id="redes">
+    <a *ngFor="let red_social of redes_sociales" href="{{red_social.link}}">
+        <div class="mx-1 my-2">
+            <app-selected-icon [name_icon] = "red_social.nombre_logo" [size_icon] = "20"></app-selected-icon>
+        </div>
+    </a>
+    <h6 class="">-</h6>
+    <h6 class="">-</h6>
+    <h6 class="mb-3">-</h6>
+</section>
+
+<!----------Modal edicion redes sociales------------>
+<div class="modal fade" id="add-red-social" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-add-edit modal-content bg-black mx-auto">
+            <div class="modal-header header border-primary">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">RED SOCIAL</h1>
+              <button type="button" (click)="Reiniciar()" class="btn-cerrar my-auto px-2 py-0 fs-5 font-bold" data-bs-dismiss="modal">X</button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="mensaje" class="mensaje-error mb-2">
+                    {{mensaje}}
+                </div>
+                <form class="text-center">
+                    <input type="text" class="mb-2 form-control bg-black text-white border-bottom border-primary" [(ngModel)] = "selectedRed_social.nombre" placeholder="Nombre..." name="nombre">
+                    
+                    <!---Seleccionar icono---->
+                    <div class="select_icon mb-2">
+                        <button data-bs-toggle="modal" data-bs-target="#view_icons_red_social" class="text-center bg-black">
+                            Seleccionar icono
+                        </button>
+                        <div class="icon-selected text-center">
+                            <app-selected-icon [name_icon] = "selectedRed_social.nombre_logo" [size_icon] = "25"></app-selected-icon>
+                        </div>
+                    </div>
+                    <!------------------------>
+                    
+                    <input type="text" class="mb-3 form-control bg-black text-white border-bottom border-primary" [(ngModel)] = "selectedRed_social.link" placeholder="Link..." name="link">
+                    <section class="icon-add-red-social p-0">
+                        <ion-icon (click)="Add_red_social()" name="add-circle-outline"></ion-icon>
+                    </section>
+                    <div class="my-3 p-2 pb-3 border border-primary rounded-2">
+                        <p class="text-center border-bottom border-primary">Redes sociales</p>
+                        <div class="sublista-red-social">
+                            <div class="items-red-social">
+                                <p *ngFor="let red_social of redes_sociales" class="item-delete-red-social px-2 py-2 my-0 rounded-2">
+                                    <span class="name-item-red-social text-start px-0">
+                                        {{red_social.nombre}}
+                                    </span>
+                                    <span class="logo-item-red-social text-end px-1">
+                                        <ion-icon (click)="Delete_item_red_social(red_social.id_red_social)" name="trash-outline"></ion-icon>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <button (click)="Reiniciar()" type="submit" class="mt-2 btn btn-primary bg-black text-center rounded-1 w-100">
+                        <ion-icon name="checkmark-done-outline"></ion-icon>
+                        ACTUALIZAR
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------Modal view icons----------->
+<div class="modal fade" id="view_icons_red_social" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <app-view-icons (icono)="Ver_icono($event)" [modal_peticion]="modal_peticion"></app-view-icons>
+</div>

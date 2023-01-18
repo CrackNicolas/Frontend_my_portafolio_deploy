@@ -1,0 +1,136 @@
+<!-----------Habilidades adicionales---------->
+<section data-aos="fade-up" data-aos-duration="3000" id="habilidades-adicionales" class="mx-auto text-end py-5 px-3">
+    
+    <!--Sub-title normal--->
+    <h4 *ngIf="!acceso" data-aos="fade-right" data-aos-duration="3000" class="mt-5 pb-2 border-bottom border-primary">Mas habilidades</h4>
+
+    <!--Sub-title de edicion--->
+    <button *ngIf="acceso" class="select-edit border-bottom border-primary mb-3" data-aos="fade-right" data-aos-duration="3000">
+        <ion-icon name="add-circle-outline" data-bs-toggle="modal" data-bs-target="#add-habilidad-adicional"></ion-icon>
+        <h4>Mas habilidades</h4>
+    </button>
+</section>
+<section data-aos="fade-up" data-aos-duration="3000" id="habilidad-adicional" class="mx-auto">
+    <article class="blandas">
+        <div class="descripcion fw-semibold border border-primary mb-4">
+            <div class="name-blanda">Blandas</div>
+            <div class="logo-blanda">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+            </div>
+        </div>
+        <div *ngFor="let habilidad of habilidades_blandas" class="bar mb-3">
+            <div class="descripcion-skill">
+                <div class="">
+                    <app-selected-icon [name_icon] = "habilidad.nombre_icono" [size_icon] = "22"></app-selected-icon>
+                </div>
+                <p>{{habilidad.nombre}}</p>
+                <div *ngIf="acceso" class="icons-skill">
+                    <ion-icon (click)="Edit_habilidad(habilidad)" name="create-outline" data-bs-toggle="modal" data-bs-target="#add-habilidad-adicional"></ion-icon>
+                    <ion-icon (click)="Delete_habilidad(habilidad.id_habilidad)" name="trash-outline"></ion-icon>
+                </div>
+            </div>
+            <div class="progress-line rounded-4">
+                <span class="h-100" style="--porcentaje:{{habilidad.porcentaje}}%"></span>
+            </div>
+        </div>
+    </article>
+    <article class="mas-habilidades">
+        <div class="gestion">
+            <div class="descripcion fw-semibold border border-primary mb-4">
+                <div class="logo-gestion">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </div>
+                <div class="name-gestion">Gestion de proyectos</div>
+            </div>
+            <div *ngFor="let habilidad of habilidades_gestion" class="bar mb-3">
+                <div class="descripcion-skill">
+                    <div class="">
+                        <app-selected-icon [name_icon] = "habilidad.nombre_icono" [size_icon] = "22"></app-selected-icon>
+                    </div>
+                    <p>{{habilidad.nombre}}</p>
+                    <div *ngIf="acceso" class="icons-skill">
+                        <ion-icon (click)="Edit_habilidad(habilidad)" name="create-outline" data-bs-toggle="modal" data-bs-target="#add-habilidad-adicional"></ion-icon>
+                        <ion-icon (click)="Delete_habilidad(habilidad.id_habilidad)" name="trash-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="progress-line rounded-4">
+                    <span class="h-100" style="--porcentaje:{{habilidad.porcentaje}}%"></span>
+                </div>
+            </div>
+        </div>
+        <div class="control-de-versiones">
+            <div class="descripcion fw-semibold border border-primary mb-4">
+                <div class="logo-version">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </div>
+                <div class="name-version">Control de versiones</div>
+            </div>
+            <div *ngFor="let habilidad of habilidades_control" class="bar mb-3">
+                <div class="descripcion-skill">
+                    <div class="">
+                        <app-selected-icon [name_icon] = "habilidad.nombre_icono" [size_icon] = "22"></app-selected-icon>
+                    </div>
+                    <p>{{habilidad.nombre}}</p>
+                    <div *ngIf="acceso" class="icons-skill">
+                        <ion-icon (click)="Edit_habilidad(habilidad)" name="create-outline" data-bs-toggle="modal" data-bs-target="#add-habilidad-adicional"></ion-icon>
+                        <ion-icon (click)="Delete_habilidad(habilidad.id_habilidad)" name="trash-outline"></ion-icon>
+                    </div>
+                </div>
+                <div class="progress-line rounded-4">
+                    <span class="h-100" style="--porcentaje:{{habilidad.porcentaje}}%"></span>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+<!---------Modal edicion habilidades adicionales----------->
+<div class="modal fade" id="add-habilidad-adicional" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-add-edit modal-content bg-black mx-auto">
+            <div class="modal-header header border-primary">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">MAS HABILIDADES</h1>
+              <button type="button" (click)="Reiniciar()" class="btn-cerrar my-auto px-2 py-0 fs-5 font-bold" data-bs-dismiss="modal">X</button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="mensaje" class="mensaje-error mb-2">
+                    {{mensaje}}
+                </div>
+                <form class="text-center">
+                    <input type="text" [(ngModel)]="selectedHabilidad.nombre" class="mb-3 form-control bg-black text-white border-bottom border-primary" placeholder="Nombre..." name="nombre">
+                    <div class="slider my-3 px-1 py-2 border border-primary rounded-2">
+                        <label for="price-2">Porcentaje</label>
+                        <output value="{{selectedHabilidad.porcentaje}}%" class="price-2-output mx-2" for="price-2"></output>
+                        <input type="range" [(ngModel)] = "selectedHabilidad.porcentaje" class="slider form-range mb-3 w-100" name="price-2" id="price-2" min="0" max="100" step="1" value="0">
+                    </div>
+
+                    <!---Seleccionar icono---->
+                    <div class="select_icon mb-3">
+                        <button data-bs-toggle="modal" data-bs-target="#view_icons_habilidad_blanda" class="text-center bg-black">
+                            Seleccionar icono
+                        </button>
+                        <div class="icon-selected text-center">
+                            <app-selected-icon [name_icon] = "selectedHabilidad.nombre_icono" [size_icon] = "25"></app-selected-icon>
+                        </div>
+                    </div>
+                    <!------------------------>
+
+                    <select [(ngModel)] = "selectedHabilidad.tipo" class="bg-black w-100 border-primary p-2 mb-3" name="tipo">
+                        <option selected>Seleccionar tipo</option>
+                        <option value="{{selectedTipo.blanda}}">Blandas</option>
+                        <option value="{{selectedTipo.gestion_de_proyecto}}">Gestion de proyectos</option>
+                        <option value="{{selectedTipo.controlador_de_versiones}}">Control de versiones</option>
+                    </select>
+                    <button (click)="Add_edit_habilidad_adicional()" type="submit" class="mt-2 btn btn-primary bg-black rounded-1 w-100">
+                        <ion-icon name="checkmark-done-outline"></ion-icon>
+                        {{name_button}}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------Modal view icons----------->
+<div class="modal fade" id="view_icons_habilidad_blanda" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <app-view-icons (icono)="Ver_icono($event)" [modal_peticion]="modal_peticion"></app-view-icons>
+</div>

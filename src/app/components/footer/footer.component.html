@@ -1,0 +1,63 @@
+<!-----------Footer---------->  
+<footer>
+    <section id="final" class="mx-auto text-center my-5 pt-5 pb-5 px-3">
+        <button class="select-final border-bottom border-primary mb-5" data-aos="fade-right" data-aos-duration="3000">
+            <ion-icon name="mail-open-outline"></ion-icon>
+            <h4>Paso final</h4>
+        </button>
+        <h1 data-aos="fade-down" data-aos-duration="3000" class="text-center fw-bold">Ponerse en contacto</h1>
+        <p data-aos="fade-down" data-aos-duration="3000" class="container mt-3 text-center">Mi bandeja siempre esta disponible, por si quieres hacer alguna pregunta o por si quieres saludar. ¡Tratare de responder lo antes posible!</p>
+        <div data-aos="fade-down" data-aos-duration="3000" class="mt-5 py-5">
+            <a href="#mensaje" class="py-4 px-5 rounded-2">Di hola</a>
+        </div>
+    </section>
+    <p data-aos="fade-left" data-aos-duration="3000" id="mensaje" class="container text-center pb-2 border-bottom">Dejame un mensaje</p>
+    <section data-aos="fade-up" data-aos-duration="3000" id="contacto" class="container text-center px-3 pt-5">
+        <article class="text-start rounded-3">
+            <form class="mx-auto">
+                <div id="f-nombre" class="mb-4">
+                    <input data-aos="fade-left" data-aos-duration="3000" type="text" name="nombre" class="form-control bg-black text-white border-bottom border-primary" placeholder="Dime tu nombre..." id="exampleInputName">
+                    <label data-aos="fade-right" data-aos-duration="2000" for="exampleInputName" class="form-label">Nombre</label>
+                </div>
+                <div id="f-email" class="mb-4">
+                    <input data-aos="fade-left" data-aos-duration="3000" type="email" name="email" class="form-control bg-black text-white border-bottom border-primary" placeholder="Dime tu email..." id="exampleInputEmail">
+                    <label data-aos="fade-right" data-aos-duration="2000" for="exampleInputEmail" class="form-label">Email</label>
+                </div>
+                <div id="f-asunto" class="mb-4">
+                    <input data-aos="fade-left" data-aos-duration="3000" type="text" name="asunto" class="form-control bg-black text-white border-bottom border-primary" placeholder="Dime tu asunto..." id="exampleInputAsunto">
+                    <label data-aos="fade-right" data-aos-duration="2000" for="exampleInputAsunto" class="form-label">Asunto</label>
+                </div>
+                <div id="f-mensaje" class="md-form amber-textarea active-amber-textarea">
+                    <textarea data-aos="fade-left" data-aos-duration="3000" id="exampleInputMensaje" name="mensaje" class="md-textarea form-control bg-black text-white border border-primary" placeholder="Escribeme tu mensaje..."></textarea>
+                    <label data-aos="fade-right" data-aos-duration="2000" for="exampleInputMensaje" class="form-label">Mensaje</label>
+                </div>
+                <button data-aos="fade-up" data-aos-duration="2500" type="submit" class="mt-5 btn btn-primary bg-black w-100 rounded-1">
+                    <ion-icon name="navigate-outline"></ion-icon>
+                    Enviar mensaje
+                </button>
+            </form>
+        </article>
+    </section>
+    <section data-aos="fade-right" data-aos-duration="2200" id="autor" class="container my-5 pt-5">
+        <div class="data">
+            <a href="#perfil">
+                <img src="{{persona.link_perfil}}" alt="Imagen de perfil">
+            </a>
+            <a href="#presentacion">
+                <h6>
+                    Diseñado y construido por {{persona.apellido}} {{persona.nombre}}
+                </h6>
+            </a>
+        </div>
+    </section>
+    <section class="curso">
+        <div class="info-curso">
+            <div class="icon-curso">
+                <ion-icon name="terminal"></ion-icon>
+            </div> 
+            <div class="title-curso">
+                Argentina programa
+            </div>  
+        </div> 
+    </section>
+</footer>

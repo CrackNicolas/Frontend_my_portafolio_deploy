@@ -1,0 +1,73 @@
+/**------Experiencia laboral------**/
+#experiencia-laboral h4{
+    font-family: var(--tipo-letra-bold);
+    letter-spacing: 1.5px;
+}
+.section-experiencia article, .section-experiencia article p{
+    color: var(--color-text-quaternary);
+}
+.img-experiencia{
+    width: 205px;
+    height: 205px;
+}
+.section-experiencia{
+    transition-duration: 1.3s;
+}
+.section-experiencia article{
+    padding-top: 9px;
+    border-bottom: 1px solid var(--color-text-primary);
+    border-top: 1px solid var(--color-text-primary);
+}
+.section-experiencia:hover article{
+    transform: translateY(-10px);
+    cursor: pointer;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 0 10px 1px var(--color-text-primary);
+}
+.data-experiencia{
+    display: flex;
+}
+.logo-experiencia{
+    width: 30%;
+}
+.info-experiencia{
+    width: 70%;
+}
+@media (max-width : 992px){
+    .logo-experiencia{
+        width: 40%;
+    }
+    .info-experiencia{
+        width: 60%;
+    }
+}
+@media (max-width : 768px){
+    .data-experiencia{
+        display: block;
+    }
+    .logo-experiencia,.info-experiencia{
+        width: auto;
+    }
+    .img-experiencia{
+        margin-bottom: 20px;
+    }
+}
+@media (max-width : 450px){
+    .img-experiencia{
+        width: 205px;
+        height: 200px;
+    }
+}
+/**-------------------------------**/
+/**--------Edicion experiencia laboral--------**/
+#add-experiencia-laboral h1{
+    font-size: 20px;
+    letter-spacing: 3.1px;
+    font-family: var(--tipo-letra-modal-add-edit);
+}
+#add-experiencia-laboral ion-icon{
+    color: var(--color-text-primary);
+}
+/**-------------------------------------------**/

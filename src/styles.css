@@ -1,0 +1,379 @@
+/**------Variables------**/
+:root{
+    --color-menu: #0a192d;
+    --color-font-primary: #02172d;
+    --color-font-card: #022441;
+    --color-fondo-login: #000000;
+    --color-text-login: #2df9bf;
+    --color-text-primary: #2df9bf;
+    --color-text-error-login: #ff0000;
+    --color-text-secondary: #ffffffde;
+    --color-text-tertiary: #ffffffb1;
+    --color-text-quaternary: #ffffff80;
+    --color-text-quintenary: #ffffff4d;
+    --color-sub-title-habilidades-adicionales: #0000ff;
+    --color-text-menu: #2dffc3;
+    --color-border-menu: #00ffff95;
+    --color-text-select: #808080;
+    --tipo-letra-bold: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    --tipo-letra-modal-add-edit: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    --porcentaje: 0%;
+    --color-theme-claro-active: var(--color-font-primary);
+    --color-theme-intermedio-active: var(--color-font-primary);
+    --color-theme-oscuro-active: var(--color-font-primary);
+    --color-theme-claro-hover-active: #00b900;
+    --color-theme-intermedio-hover-active: #00ffff;
+    --color-theme-oscuro-hover-active: #2df9bf;
+}
+/**---------------------**/
+
+/**------General------**/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--color-text-primary);
+    letter-spacing: 1.4px;
+}
+body{
+    background: var(--color-font-primary);
+}
+a{
+    text-decoration: none;
+}
+#presentacion, #descripcion, #educacion, .section-educacion, #experiencia-laboral, .section-experiencia, #habilidades, #habilidades-adicionales, #proyectos, .section-pasatiempo, #pasatiempos, #redes-sociales{
+    width: 96%;
+}
+textarea{
+    min-height: 140px;
+    max-height: 140px;
+    resize:none;
+}
+textarea::-webkit-scrollbar{
+    width: 7px;
+}
+textarea::-webkit-scrollbar-thumb{
+    background: var(--color-text-primary);
+    border-radius: 30px;
+}
+.btn:hover{
+    box-shadow: 0 1px 20px 15px var(--color-font-card);
+    font-family: var(--tipo-letra-bold);
+    color: var(--color-text-primary);
+}
+.header{
+    height: 45px;
+    padding: 0px 15px;
+}
+.header .btn-cerrar{
+    background-color: var(--color-text-primary);
+    color: var(--color-font-primary);
+    border: 1px;
+    border-radius: 10%;
+    width: 25px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 3px;
+}
+.header .btn-cerrar:hover{
+    box-shadow: 0 0 10px 7px var(--color-font-card);
+    font-family: var(--tipo-letra-bold);
+}
+.login form a, #add-educacion form button, #edit-presentacion form button, #add-detalle form button, #add-experiencia-laboral form button, #add-habilidad-tecnica form button, #add-habilidad-adicional form button, #add-proyecto form button, #add-tecnologia form button, #add-red-social form button, #add-pasatiempo form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+@media (max-width : 600px){
+    .header .btn-cerrar{
+        background: transparent;
+        color:var(--color-text-primary);
+    }
+}
+html,body{
+    width: 100%;
+    overflow-x: hidden;
+}
+@media (min-width : 500px){
+    body::-webkit-scrollbar{
+        width: 7px;
+    }
+    body::-webkit-scrollbar-thumb{
+        background: var(--color-text-primary);
+        border-radius: 30px;
+    }
+}
+/**-------------------**/
+
+/**------------Selected icons-------------**/
+.select_icon{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-sub-title-habilidades-adicionales);
+    border-radius: 7px;
+    display: flex;
+    gap: 5px;
+}
+.select_icon button{
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-sub-title-habilidades-adicionales);
+    border-radius: 7px;
+    padding: 10px 10px;
+    outline: none;
+    width: 70%;
+}
+.select_icon button:hover{
+    cursor: pointer;
+    color: var(--color-sub-title-habilidades-adicionales);
+    background-color: var(--color-text-primary);
+}
+.select_icon .icon-selected{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--color-sub-title-habilidades-adicionales);
+    border-radius: 6px;
+    padding: 5px 10px;
+    width: 30%;
+}
+/**--------------------------------------**/
+
+/**-------Calendar de edicion general-------**/
+.calendar input::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+.info-calendar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.name-fecha{
+    width: 50%;
+    text-align: start;
+    padding: 5px 0px 5px 13px;
+    color: var(--color-text-select);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.calendar{
+    width: 50%;
+    padding: 5px 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.calendar:hover{
+    box-shadow: 0 0 3px 1px var(--color-sub-title-habilidades-adicionales);
+}
+.calendar input{
+    color: var(--color-text-select);
+    text-align: center;
+    border: 0;
+    outline: none;
+    text-decoration: none;
+}
+.calendar input:hover{
+    cursor: pointer;
+}
+@media (max-width : 360px){
+    .name-fecha{
+        width: 45%;
+        text-align: start;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    .calendar{
+        padding-right: 5px;
+        width: 55%;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+}
+@media (max-width : 330px){
+    .info-calendar{
+        display: block;
+    }
+    .name-fecha{
+        width: 100%;
+        text-align: start;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        text-align: center;
+    }
+    .calendar{
+        width: 100%;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+}
+/**-----------------------------------------**/
+
+/**-----------Slider de porcentaje----------**/
+input[type=range] {
+    height: 5px;
+    width: 100%;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    background: var(--color-text-primary);
+}
+input[type=range]::-webkit-slider-thumb {
+    height: 25px;
+    width: 13px;
+    margin-top: -8px;
+    background: #000000;
+    border: 2px solid var(--color-text-primary);
+}
+/**-----------------------------------------**/
+
+/**-------Encabezado de edicion general-------**/
+.select-edit{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--color-font-primary);
+    border:none;
+}
+.select-edit ion-icon{
+    width: 35px;
+    height: 35px;
+    color: var(--color-text-primary);
+    border-radius: 5px;
+}
+.select-edit ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px 3px var(--color-text-primary);
+}
+.select-edit h4{
+    padding-top: 9px;
+    width: 100%;
+    text-align: end;
+}
+@media (max-width : 400px){
+    .select-edit ion-icon{
+        width: 30px;
+        height: 30px;
+    }
+}
+/**-------------------------------------------**/
+
+/**----------Modal de edicion y agregar general----------**/
+.modal-add-edit{
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px;
+}
+@media (max-height : 565px){
+    .modal-add-edit{
+        margin-top: -15px;
+    }
+}
+/**------------------------------------------------------**/
+
+/**-----------Iconos de edicion y eliminacion------------**/
+.subicon-edit{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    border-radius: 20px;
+    background-color: var(--color-font-card);
+    margin-right: 10px;
+}
+.subicon-edit ion-icon{
+    width: 30px;
+    height: 30px;
+    margin: 20px 0px;
+    border-radius: 3px;
+    color: var(--color-text-primary);
+}
+.subicon-edit ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 3px var(--color-text-primary);
+}
+@media (max-width : 400px){
+    .subicon-edit ion-icon{
+        width: 25px;
+        height: 25px;
+    }
+}
+@media (max-width : 770px){
+    .subicon-edit{
+        display: flex;
+        flex-flow: row;
+        width: 97%;
+        margin: 30px auto 0px auto;
+    }
+    .subicon-edit ion-icon{
+        margin: 5px 20px;
+    }
+}
+/**------------------------------------------------------**/
+
+/**---------------Themes-------------**/
+#theme{
+    display: flex;
+    gap:20px;
+}
+#theme ion-icon{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 0.1px solid var(--color-text-primary);
+}
+#theme ion-icon:hover{
+    cursor: pointer;
+}
+.theme-claro{
+    color: var(--color-theme-claro-active);
+}
+.theme-claro:hover{
+    cursor: pointer;
+    color: var(--color-theme-claro-hover-active);
+    box-shadow: 0 0 30px 2px var(--color-theme-claro-hover-active);
+}
+.theme-intermedio{
+    color: var(--color-theme-intermedio-active);
+}
+.theme-intermedio:hover{
+    cursor: pointer;
+    color: var(--color-theme-intermedio-hover-active);
+    box-shadow: 0 0 30px 2px var(--color-theme-intermedio-hover-active);
+}
+.theme-oscuro{
+    color: var(--color-theme-oscuro-active);
+}
+.theme-oscuro:hover{
+    cursor: pointer;
+    color: var(--color-theme-oscuro-hover-active);
+    box-shadow: 0 0 30px 2px var(--color-theme-oscuro-hover-active);
+}
+@media (max-width : 1100px){
+    #theme{
+        top: 100px;
+        right: 4px;
+        margin-bottom: 15px;
+    }
+    #theme ion-icon{
+        width: 20px;
+        height: 20px;
+    }
+}
+@media (max-width : 500px){
+    #theme{
+        top: 80px;
+        right: 3px;
+        margin-bottom: 10px;
+    }
+    #theme ion-icon{
+        width: 15px;
+        height: 15px;
+    }
+}
+/**----------------------------------**/

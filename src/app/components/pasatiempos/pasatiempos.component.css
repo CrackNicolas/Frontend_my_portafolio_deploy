@@ -1,0 +1,82 @@
+/**------------Pasatiempos-----------**/
+.section-pasatiempo h4, #pasatiempos h4{
+    font-family: var(--tipo-letra-bold);
+    letter-spacing: 2px;
+}
+.section-pasatiempo p, .pasatiempos-contain div{
+    color: var(--color-text-quaternary);
+}
+.pasatiempos-contain{
+    display: flex;
+    justify-content: flex-start;
+    align-items: initial;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.pasatiempos-contain svg{
+    width: 55px;
+    height: 55px;
+    margin-bottom: 25px;
+    color: var(--color-text-primary);
+}
+.section{
+    border: 1px solid var(--color-sub-title-habilidades-adicionales);
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    transition-duration: 1s;
+    width: 32.7%;
+}
+.section:hover{
+    cursor: pointer;
+    box-shadow: 0 0 12px 0 var(--color-sub-title-habilidades-adicionales);
+    transform: translateY(-2px);
+}
+@media (max-width : 1150px){
+    .section{
+        width: 32.5%;
+    }
+}
+@media (max-width : 885px){
+    .section{
+        width: 32.3%;
+    }
+}
+@media (max-width : 800px){
+    .pasatiempos-contain{
+        display: block;
+    }
+    .section{
+        width: 100%;
+        margin-bottom: 13px;
+    }
+}
+/**----------Edicion pasatiempos---------**/
+#add-pasatiempo select, #add-pasatiempo option{
+    color: var(--color-text-select);
+    outline: none;
+}
+#add-pasatiempo select{
+    border-radius: 6px;
+}
+#add-pasatiempo h1{
+    font-size: 20px;
+    letter-spacing: 3.1px;
+    font-family: var(--tipo-letra-modal-add-edit);
+}
+#add-pasatiempo button ion-icon{
+    color: var(--color-text-primary);
+}
+.subicon-edit-pasatiempo{
+    display: flex;
+    justify-content: flex-end;
+}
+.subicon-edit-pasatiempo ion-icon{
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+}
+.subicon-edit-pasatiempo ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px 3px var(--color-text-primary);
+}

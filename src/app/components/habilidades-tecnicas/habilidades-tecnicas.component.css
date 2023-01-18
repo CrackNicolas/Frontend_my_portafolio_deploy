@@ -1,0 +1,175 @@
+/**------Habilidad tecnicas------**/
+#habilidades h4{
+    font-family: var(--tipo-letra-bold);
+    letter-spacing: 1.5px;
+}
+#habilidad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 93%;
+    flex-wrap: wrap;
+    gap: 40px;
+    border-radius: 20px;
+    background: var(--color-font-card);
+}
+#habilidad:hover{
+    box-shadow: 0 0 10px 1px var(--color-text-primary);
+    transform: translateY(-20px);
+}
+#habilidad:hover .dot{
+    animation: animateDot 2s linear forwards;
+}
+.dot::before{
+    position: absolute;
+    content: '';
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-text-primary);
+    box-shadow: 0 0 8px 3px var(--color-text-primary);
+}
+.dot{
+    position: absolute;
+    inset: 5px;
+    transform: rotate(calc(3.6deg * var(--num)));
+}
+.icon{
+    margin-top: 10px;
+    margin-bottom: -25px;
+}
+.porcentaje:hover{
+    cursor: pointer;
+}
+.porcentaje{
+    position: relative;
+    border-radius: 50%;
+}
+.porcentaje svg{
+    width: 150px;
+    height: 150px;
+    transform: rotate(270deg);
+}
+.porcentaje svg circle{
+    fill: transparent;
+    stroke-width: 1.5;
+    transform: translate(5px,5px);
+}
+.porcentaje svg circle:nth-child(2){
+    stroke: var(--color-text-primary);
+    stroke-dasharray: 440;
+    stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+}
+.porcentaje .icon svg{
+    width: 23px;
+    height: 23px;
+    margin-top: -5px;
+    transform: rotate(400grad);
+    color: var(--color-text-primary);
+}
+
+@keyframes animateDot{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(calc(3.6deg * var(--num)));
+    }
+}
+.numero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    flex-direction: column;
+}
+.numero h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2em;
+    margin-top: 33px;
+}
+.numero h2 span{
+    font-weight: 300;
+    font-size: 0.7em;
+}
+.numero p{
+    margin-top: -5px;
+}
+.container-edit-habilidad .subicon-edit-habilidad{
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    margin-top: 5px;
+    padding: 5px 0px;
+    background-color: var(--color-font-primary);
+}
+.container-edit-habilidad .subicon-edit-habilidad ion-icon{
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    color: var(--color-text-primary);
+}
+.container-edit-habilidad .subicon-edit-habilidad ion-icon:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 3px var(--color-text-primary);
+}
+#habilidad .icon img{
+    width: 27px;
+    height: 27px;
+}
+#habilidad .icon ion-icon{
+    width: 23px;
+    height: 23px;
+    color: var(--color-text-primary);
+}
+@media (min-width : 390px){
+    #habilidad{
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+@media (max-width : 390px){
+    #habilidad{
+        padding-top: 40px;
+        gap: 5px;
+    }
+    .container-edit-habilidad{
+        margin-bottom: 25px;
+    }
+    .porcentaje{
+        margin-bottom: 13px;
+    }
+}
+@media (min-width : 310px){
+    #habilidad{
+        padding-bottom: 35px;
+    }
+}
+/**---------------------**/
+/**-----------Edicion habilidad tecnica----------**/
+#add-habilidad-tecnica h1{
+    font-size: 20px;
+    letter-spacing: 3.1px;
+    font-family: var(--tipo-letra-modal-add-edit);
+}
+#add-habilidad-tecnica select{
+    border-radius: 6px;
+}
+#add-habilidad-tecnica select, #add-habilidad-tecnica option{
+    color: var(--color-text-select);
+    outline: none;
+}
+#add-habilidad-tecnica select:hover{
+    cursor: pointer;
+}
+#add-habilidad-tecnica ion-icon{
+    color: var(--color-text-primary);
+}
+/**----------------------------------------------**/

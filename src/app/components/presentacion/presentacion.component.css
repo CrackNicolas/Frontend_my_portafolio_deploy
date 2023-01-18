@@ -1,0 +1,215 @@
+/**------Presentacion------**/
+#saludo, #nombre, #profesion{
+    font-family: var(--tipo-letra-bold);
+}
+#nombre{
+    color: var(--color-text-secondary);
+    font-size: 80px;
+}
+#profesion{
+    color: var(--color-text-tertiary);
+    font-size: 60px;
+}
+#nombre:hover{
+    cursor: pointer;
+    color: var(--color-text-primary);
+}
+#profesion:hover{
+    cursor: pointer;
+    color: var(--color-text-primary);
+}
+#info{
+    max-width: 90%;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: var(--color-text-quintenary);
+}
+#info:hover{
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 5px;
+    color: var(--color-text-primary);
+}
+#perfil img{
+    width: 400px;
+    height: 400px;
+    box-shadow: 0 0 50px 30px var(--color-menu);
+}
+#perfil img:hover {
+    position: relative;
+    cursor: pointer;
+    -webkit-transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+    filter: grayscale(50%);
+}
+#descripcion p, #descripcion li{
+    color: var(--color-text-quaternary);
+}
+#sobre-mi{
+    font-family: var(--tipo-letra-bold);
+    letter-spacing: 1.5px;
+}
+#direccion{
+    transition-duration: 1s;
+}
+#direccion:hover{
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transform: translateX(-5px);
+}
+.tecnologias-actuales{
+    display: flex;
+    gap:30px;
+}
+.lista-start,.lista-end{
+    display: block;
+    width: 50%;
+}
+#descripcion li{
+    list-style: none;
+    margin-bottom: 5px;
+    transition: 2s;
+}
+#descripcion li::before {
+	content: "► ";  
+    color: var(--color-text-primary);
+}
+#descripcion li:hover{
+    cursor: pointer;
+    color: var(--color-text-primary);
+    transform: translateX(9px);
+}
+@media (max-width : 1200px){
+    #nombre{
+        font-size: 66px;
+    }
+    #profesion{
+        font-size: 46px;
+    }
+}
+@media (max-width : 975px){
+    #nombre{
+        font-size: 56px;
+    }
+    #profesion{
+        font-size: 36px;
+    }
+}
+@media (max-width : 845px){
+    #nombre{
+        font-size: 46px;
+    }
+    #profesion{
+        font-size: 38px;
+    }
+}
+@media (max-width : 745px){
+    #nombre{
+        font-size: 36px;
+    }
+    #profesion{
+        font-size: 33px;
+    }
+}
+@media (max-width : 574px){
+    #nombre{
+        font-size: 26px;
+    }
+    #profesion{
+        font-size: 23px;
+    }
+}
+@media (max-width : 450px){
+    #saludo{
+        font-size: 20px;
+    }
+    #nombre, #profesion{
+        color: var(--color-text-secondary);
+        font-size: 21px;
+    }
+    #info{
+        max-width: 100%;
+        font-size: 17px;
+        color: var(--color-text-quintenary);
+    }
+    #perfil img{
+        width: 300px;
+        height: 300px;
+    }
+    #descripcion{
+        width: 100%;
+    }
+    #presentacion{
+        width: 100%;
+    }
+    #presentacion, #descripcion, #educacion, .section-educacion, #experiencia-laboral, .section-experiencia, #habilidades, #habilidades-adicionales, #proyectos{
+        width: 100%;
+    }
+}
+@media (max-width : 360px){
+    #saludo{
+        font-size: 16px;
+    }
+    #nombre, #profesion{
+        color: var(--color-text-secondary);
+        font-size: 19px;
+    }
+    #info{
+        max-width: 100%;
+        font-size: 14px;
+        letter-spacing: 2px;
+        color: var(--color-text-quintenary);
+    }
+    #info:hover{
+        letter-spacing: 4px;
+    }
+    #perfil img{
+        width: 275px;
+        height: 275px;
+    }
+}
+@media (max-width : 333px){
+    #nombre, #profesion{
+        font-size: 18px;
+    }
+}
+@media (max-width : 320px){
+    #perfil img{
+        width: 240px;
+        height: 240px;
+    }
+}
+@media (max-width : 300px){
+    #perfil img{
+        width: 230px;
+        height: 230px;
+    }
+}
+/**--------Edicion presentacion---------**/
+#edit-presentacion h1{
+    font-size: 20px;
+    letter-spacing: 3.1px;
+    font-family: var(--tipo-letra-modal-add-edit);
+}
+.lista-presentacion{
+    overflow-y: scroll;
+    height: 350px;
+    scrollbar-color: var(--color-text-primary);
+}
+.lista-presentacion::-webkit-scrollbar{
+    width: 7px;
+}
+.lista-presentacion::-webkit-scrollbar-thumb{
+    background: var(--color-text-primary);
+    border-radius: 30px;
+}
+.items-presentacion{
+    padding-right: 5px;
+    height: auto;
+}
+#edit-presentacion ion-icon{
+    color: var(--color-text-primary);
+}
+/**------------------------**/

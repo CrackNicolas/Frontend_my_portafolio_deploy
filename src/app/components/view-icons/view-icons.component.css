@@ -1,0 +1,47 @@
+.pagina-view-icons ion-icon{
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+}
+.pagina-view-icons img{
+    width: 45px;
+    height: 45px;
+    padding: 5px;
+}
+.pagina-view-icons svg{
+    width: 45px;
+    height: 45px;
+    padding: 5px;
+}
+.pagina-view-icons i{
+    padding: 4px;
+}
+.pagina-view-icons i:hover{
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 0 0 5px 1px var(--color-text-primary);
+}
+.pagina-view-icons svg:hover, .pagina-view-icons ion-icon:hover, .pagina-view-icons img:hover{
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 0 0 5px 1px var(--color-text-primary);
+}
+.lista-icons{
+    overflow-y: scroll;
+    height: 350px;
+    scrollbar-color: var(--color-text-primary);
+}
+.lista-icons::-webkit-scrollbar{
+    width: 7px;
+}
+.lista-icons::-webkit-scrollbar-thumb{
+    background: var(--color-text-primary);
+    border-radius: 30px;
+}
+.items-icons{
+    padding: 2px 5px 2px 2px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}

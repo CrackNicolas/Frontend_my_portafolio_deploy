@@ -1,0 +1,75 @@
+
+<!-----------Pasatiempos---------->  
+<section data-aos="fade-up" data-aos-duration="3000" id="pasatiempos" class="section-pasatiempo text-start mx-auto py-5 mb-3 px-4">
+    
+    <!--Sub-title normal--->
+    <h4 *ngIf="!acceso" data-aos="fade-right" data-aos-duration="3000" class="text-center mb-3 pb-2 border-bottom border-primary">Pasatiempos</h4>
+    
+    <!--Sub-title de edicion--->
+    <button *ngIf="acceso" class="select-edit border-bottom border-primary mb-4" data-aos="fade-right" data-aos-duration="3000">
+        <ion-icon name="add-circle-outline" data-bs-toggle="modal" data-bs-target="#add-pasatiempo"></ion-icon>
+        <h4>Pasatiempos</h4>
+    </button>
+    
+    <p data-aos="fade-left" data-aos-duration="3000" class="mb-4">Aqui hay algunas cosas que me gustan hacer aparte de la programacion:</p>
+    <article data-aos="fade-up" data-aos-duration="3000" class="pasatiempos-contain">
+        <div *ngFor="let pasatiempo of pasatiempos" class="section">
+            <div *ngIf="acceso" class="subicon-edit-pasatiempo">
+                <ion-icon (click)="Edit_pasatiempo(pasatiempo)" class="mx-2" name="create-outline" data-bs-toggle="modal" data-bs-target="#add-pasatiempo"></ion-icon>
+                <ion-icon (click)="Delete_pasatiempo(pasatiempo.id_pasatiempo)" class="mx-2" name="trash-outline"></ion-icon>
+            </div>
+            <div class="image">
+                <app-selected-icon [name_icon] = "pasatiempo.nombre_logo" [size_icon] = "50"></app-selected-icon>
+            </div>
+            <div class="info mt-3">
+                {{pasatiempo.descripcion}}  
+            </div>
+        </div>
+    </article>  
+</section>
+
+<!---------Modal edicion pasatiempos----------->
+<div class="modal fade" id="add-pasatiempo" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-add-edit modal-content bg-black mx-auto">
+            <div class="modal-header header border-primary">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">{{title}}</h1>
+              <button type="button" (click)="Reiniciar()" class="btn-cerrar my-auto px-2 py-0 fs-5 font-bold" data-bs-dismiss="modal">X</button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="mensaje" class="mensaje-error mb-2">
+                    {{mensaje}}
+                </div>
+                <form class="text-center">
+                    <textarea type="text" [(ngModel)] = "selectedPasatiempo.descripcion" class="mb-3 form-control bg-black text-white border-bottom border-primary" placeholder="Descripcion..." name="descripcion"></textarea>
+
+                    <!---Seleccionar icono---->
+                    <div class="select_icon mb-3">
+                        <button data-bs-toggle="modal" data-bs-target="#view_icons_pasatiempo" class="text-center bg-black">
+                            Seleccionar icono
+                        </button>
+                        <div class="icon-selected text-center">
+                            <app-selected-icon [name_icon] = "selectedPasatiempo.nombre_logo" [size_icon] = "25"></app-selected-icon>
+                        </div>
+                    </div>
+                    <!------------------------>
+                    
+                    <select [(ngModel)] = "selectedPasatiempo.categoria" class="bg-black w-100 border-primary p-2 mb-3" name="categoria">
+                        <option selected>Seleccionar categoria</option>
+                        <option value="{{selectedCategoria.Deportes}}">Deporte</option>
+                        <option value="{{selectedCategoria.Instrumento}}">Instrumento</option>
+                        <option value="{{selectedCategoria.Otros}}">Otros</option>
+                    </select>
+                    <button type="submit" (click)="Add_edit_pasatiempo()" class="mt-2 btn btn-primary bg-black text-center rounded-1 w-100">
+                        <ion-icon name="checkmark-done-outline"></ion-icon>
+                        {{name_button}}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------Modal view icons----------->
+<div class="modal fade" id="view_icons_pasatiempo" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <app-view-icons (icono)="Ver_icono($event)" [modal_peticion]="modal_peticion"></app-view-icons>
+</div>

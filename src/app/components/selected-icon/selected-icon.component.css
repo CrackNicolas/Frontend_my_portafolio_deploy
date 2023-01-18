@@ -1,0 +1,14 @@
+:root{
+    --size_icon : 0px; 
+}
+svg, ion-icon{
+    width: var(--size_icon);
+    height: var(--size_icon);
+}
+ion-icon{
+    margin-top: 5px;
+}
+img{
+    width: calc(var(--size_icon) + 4.5px);
+    height: calc(var(--size_icon) + 4.5px);
+}

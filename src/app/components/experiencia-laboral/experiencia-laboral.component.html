@@ -1,0 +1,81 @@
+<!-----------Experiencia---------->
+<section data-aos="fade-right" data-aos-duration="3000" id="experiencia-laboral" class="mx-auto text-start py-5 px-3">
+    
+    <!--Sub-title normal--->
+    <h4 *ngIf="!acceso" class="border-bottom border-primary pb-2 text-end mt-5 mb-1">Experiencia</h4>
+
+    <!--Sub-title de edicion--->
+    <button *ngIf="acceso" class="select-edit border-bottom border-primary mb-3" data-aos="fade-right" data-aos-duration="3000">
+        <ion-icon name="add-circle-outline" data-bs-toggle="modal" data-bs-target="#add-experiencia-laboral"></ion-icon>
+        <h4>Experiencia</h4>
+    </button>
+
+</section>
+<section data-aos="fade-up" data-aos-duration="3000" class="section-experiencia mx-auto text-start pb-5 px-3">
+    <article *ngFor="let experiencia of experiencias_laborales" data-aos="fade-up" data-aos-duration="3000" class="data-experiencia py-4">
+        <div class="logo-experiencia text-center my-auto">
+            <img class="img-experiencia mt-0 rounded-3" src="{{experiencia.url_imagen}}" alt="Imagen experiencia laboral {{experiencia.empresa}}">
+        </div>
+        <div class="info-experiencia px-3 my-auto">
+            <p class="name-institucion fw-semibold">
+                {{experiencia.empresa}}
+            </p>
+            <p class="card-text my-2">
+                Puesto : {{experiencia.puesto}}
+            </p>
+            <p class="card-text my-2">
+                Tiempo transurrido desde {{experiencia.fecha_inicio}} hasta {{experiencia.fecha_inicio}}
+            </p>
+            <p class="card-text my-2">
+                Descripcion : {{experiencia.descripcion}}
+            </p>
+        </div>
+        <section *ngIf="acceso" class="subicon-edit">
+            <ion-icon (click)="Edit_experiencia(experiencia)" name="create-outline" data-bs-toggle="modal" data-bs-target="#add-experiencia-laboral"></ion-icon>
+            <ion-icon (click)="Delete_experiencia(experiencia.id_experiencia)" name="trash-outline"></ion-icon>
+        </section>
+    </article>
+</section>
+
+<!---------Modal edicion experiencia laboral----------->
+<div class="modal fade" id="add-experiencia-laboral" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-add-edit modal-content bg-black mx-auto">
+            <div class="modal-header header border-primary">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">{{title}}</h1>
+              <button type="button" (click)="Reiniciar()" class="btn-cerrar my-auto px-2 py-0 fs-5 font-bold" data-bs-dismiss="modal">X</button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="mensaje" class="mensaje-error mb-2">
+                    {{mensaje}}
+                </div>
+                <form class="text-center">
+                    <input type="text" [(ngModel)] = "selectedExperiencia.empresa" class="mb-3 form-control bg-black text-white border-bottom border-primary" placeholder="Empresa..." name="empresa">
+                    <input type="text" [(ngModel)] = "selectedExperiencia.puesto" class="mb-3 form-control bg-black text-white border-bottom border-primary" placeholder="Puesto..." name="puesto">
+                    <div class="info-calendar mb-3">
+                        <div class="name-fecha border border-primary">
+                            Fecha inicio
+                        </div>
+                        <div class="calendar border border-primary">
+                            <input type="date" min="01/01/2023" [(ngModel)] = "selectedExperiencia.fecha_inicio" class="bg-black" name="fecha_inicio">
+                        </div>
+                    </div>
+                    <div class="info-calendar mb-3">
+                        <div class="name-fecha border border-primary">
+                            Fecha fin
+                        </div>
+                        <div class="calendar border border-primary">
+                            <input type="date" min="01/01/2023" [(ngModel)] = "selectedExperiencia.fecha_fin" class="bg-black" name="fecha_fin">
+                        </div>
+                    </div>
+                    <input type="text" [(ngModel)] = "selectedExperiencia.url_imagen" class="mb-3 form-control bg-black text-white border-bottom border-primary" placeholder="Url de imagen..." name="url_imagen">
+                    <textarea type="text" [(ngModel)] = "selectedExperiencia.descripcion" class="form-control bg-black text-white border-bottom border-primary" placeholder="Descripcion..." name="descripcion"></textarea>
+                    <button type="submit" (click)="Add_edit_experiencia()" class="btn-login mt-4 btn btn-primary bg-black rounded-1 w-100">
+                        <ion-icon name="checkmark-done-outline"></ion-icon>
+                        {{name_button}}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

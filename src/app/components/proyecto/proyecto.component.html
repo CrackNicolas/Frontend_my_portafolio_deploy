@@ -1,0 +1,111 @@
+<!-----------Proyectos----------->
+<section data-aos="fade-right" data-aos-duration="3000" id="proyectos" class="mx-auto text-start py-5 px-3">
+
+    <!--Sub-title normal--->
+    <h4 *ngIf="!acceso" class="border-bottom border-primary pb-2 text-end mt-5 mb-1">Proyectos</h4>
+
+    <!--Sub-title de edicion--->
+    <button *ngIf="acceso" class="select-edit border-bottom border-primary mb-3" data-aos="fade-right" data-aos-duration="3000">
+        <ion-icon name="add-circle-outline" data-bs-toggle="modal" data-bs-target="#add-proyecto"></ion-icon>
+        <h4>Proyectos</h4>
+    </button>
+</section>
+
+<p data-aos="fade-up" data-aos-duration="3000" class="presentacion-proyecto mx-auto mb-5">A continuacion algunos proyectos que he realizado, en todos ellos siempre tuve presente que un entorno de trabajo bien personalizado es fundamental para un desarrollo productivo y eficiente.</p>
+<section data-aos="fade-up" data-aos-duration="3000" class="section-proyecto mx-auto mb-5">
+    <div class="swiper mySwiper-proyecto mb-5">
+        <div class="swiper-wrapper">
+            <article *ngFor="let proyecto of proyectos" class="card swiper-slide">
+                <div class="face front">
+                    <img class="img-card-proyecto" src="{{proyecto.url_imagen}}" alt="Imagen de proyecto {{proyecto.nombre}}">
+                    <p class="text-card-proyecto fw-bold">{{proyecto.nombre}}</p>   
+                </div>
+                <div class="face back">
+                    <h3 class="fw-bold">{{proyecto.nombre}}</h3>
+                    <p>{{proyecto.descripcion}}</p>
+                    <p>Tecnologias : {{proyecto.tecnologias_usadas}}</p>
+                    <div class="link">
+                        <a href="{{proyecto.link_git}}" class="mx-2">
+                            <ion-icon name="git-branch-outline"></ion-icon>
+                        </a>
+                        <ion-icon *ngIf="acceso" (click)="Edit_proyecto(proyecto)" class="mx-2" name="create-outline" data-bs-toggle="modal" data-bs-target="#add-proyecto"></ion-icon>
+                        <ion-icon *ngIf="acceso" (click)="Delete_proyecto(proyecto.id_proyecto)" class="mx-2" name="trash-outline"></ion-icon>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+<!---------Modal edicion proyectos----------->
+<div class="modal fade" id="add-proyecto" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-add-edit modal-content bg-black mx-auto">
+            <div class="modal-header header border-primary">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">{{title}}</h1>
+              <button type="button" (click)="Reiniciar()" class="btn-cerrar my-auto px-2 py-0 fs-5 font-bold" data-bs-dismiss="modal">X</button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="mensaje" class="mensaje-error mb-2">
+                    {{mensaje}}
+                </div>
+                <form class="text-center">
+                    <div class="lista">
+                        <div class="items">
+                            <input type="text" [(ngModel)] = "selectedProyecto.nombre" class="mb-3 form-control bg-black text-white border-bottom border-primary" placeholder="Nombre..." name="nombre">
+                            <textarea type="text" [(ngModel)] = "selectedProyecto.descripcion" class="mb-3 form-control bg-black text-white border-bottom border-primary" placeholder="Descripcion..." name="descripcion"></textarea>
+                            <input type="text" [(ngModel)] = "selectedProyecto.url_imagen" class="mb-3 form-control bg-black text-white border-bottom border-primary" placeholder="Url de imagen..." name="url_imagen">
+                            <input type="text" [(ngModel)] = "selectedProyecto.link_git" class="form-control bg-black text-white border-bottom border-primary" placeholder="Link de repositorio..." name="link_git">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-login mt-4 btn btn-primary bg-black rounded-1 w-100" data-bs-toggle="modal" data-bs-target="#add-tecnologia">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/><path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/></svg>
+                        CONTINUAR
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="add-tecnologia" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-add-edit modal-content bg-black mx-auto">
+            <div class="modal-header header border-primary">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">TECNOLOGIAS</h1>
+              <button type="button" class="btn-cerrar my-auto px-2 py-0 fs-5 font-bold" data-bs-dismiss="modal">X</button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="mensaje" class="mensaje-error mb-2">
+                    {{mensaje}}
+                </div>
+                <form class="text-center">
+                    <input type="text" [(ngModel)] = "selectedTecnologia" class="mb-3 form-control bg-black text-white border-bottom border-primary" placeholder="Descripcion..." name="descripcion">
+                    <section class="icon-add-tecnologia p-0">
+                        <ion-icon (click)="Add_tecnologia()" name="add-circle-outline"></ion-icon>
+                    </section>
+                    <div class="my-3 p-2 pb-3 border border-primary rounded-2">
+                        <p class="text-center border-bottom border-primary">Tecnologias usadas</p>
+                        <div class="sublista-tecnologia">
+                            <div class="items-tecnologia">
+                                <p *ngFor="let tecnologia of Get_tecnologias()" class="item-delete-tecnologia px-2 py-2 my-0 rounded-2">
+                                    <span class="name-item-tecnologia text-start px-0">
+                                        {{tecnologia}}
+                                    </span>
+                                    <span class="logo-item-tecnologia text-end px-1">
+                                        <ion-icon (click)="Delete_item_tecnologia(tecnologia)" name="trash-outline"></ion-icon>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <button (click)="Add_edit_proyecto()" type="submit" class="mt-2 btn btn-primary bg-black text-center rounded-1 w-100" data-bs-toggle="modal" data-bs-target="#add-proyecto">
+                        <ion-icon name="checkmark-done-outline"></ion-icon>
+                        {{name_button}}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
